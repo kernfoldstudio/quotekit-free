@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fill out a free mobile detailing quote template, calculate line-item totals, and print or save the estimate as a PDF. Private and no signup required." />
+    <meta name="robots" content="index,follow" />
+    <title>Free Mobile Detailing Quote Template | Printable Estimate</title>
+    <link rel="canonical" href="https://kernfoldstudio.github.io/quotekit-free/quote-template.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Free Mobile Detailing Quote Template | Kernfold" />
+    <meta property="og:description" content="Fill in line items, calculate the total, and print or save a detailing estimate as a PDF. No signup required." />
+    <meta property="og:url" content="https://kernfoldstudio.github.io/quotekit-free/quote-template.html" />
+    <meta property="og:image" content="https://kernfoldstudio.github.io/quotekit-free/social-preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="template-page">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Kernfold QuoteKit home"><span class="brand-mark" aria-hidden="true">K</span><span>kernfold</span></a>
+      <span class="edition-badge">Free template</span>
+    </header>
+
+    <main class="template-main">
+      <section class="template-hero">
+        <p class="eyebrow">QuoteKit · Free mobile detailing resource</p>
+        <h1>A printable detailing quote template—without a signup.</h1>
+        <p class="hero-lede">Add your business and customer details, enter up to five line items, and print the finished estimate or save it as a PDF. Everything stays in the current browser page.</p>
+        <p class="template-byline">Published by Kernfold · July 13, 2026</p>
+      </section>
+
+      <section class="template-layout" aria-label="Mobile detailing quote template">
+        <form class="template-form estimate-sheet" id="estimate-form">
+          <div class="estimate-heading">
+            <div><p class="quote-kicker">Prepared estimate</p><h2>Mobile detailing quote</h2><p>Review the vehicle and confirm the final scope before work begins.</p></div>
+            <span class="mini-mark" aria-hidden="true">K</span>
+          </div>
+
+          <div class="template-fields">
+            <label>Business name<input type="text" name="business" maxlength="80" placeholder="Your detailing business" autocomplete="off" /></label>
+            <label>Estimate date<input id="estimate-date" type="date" name="date" /></label>
+            <label>Prepared for<input type="text" name="customer" maxlength="80" placeholder="Customer name" autocomplete="off" /></label>
+            <label>Vehicle<input type="text" name="vehicle" maxlength="100" placeholder="Year, make, model, size" autocomplete="off" /></label>
+          </div>
+
+          <table class="line-items">
+            <thead><tr><th scope="col">Service or add-on</th><th scope="col">Qty</th><th scope="col">Rate</th><th scope="col">Amount</th></tr></thead>
+            <tbody>
+              <tr><td><input class="item-name" aria-label="Line 1 service" type="text" maxlength="90" placeholder="Detailing package" /></td><td><input class="item-qty" aria-label="Line 1 quantity" type="number" min="0" step="0.1" value="1" /></td><td><input class="item-rate" aria-label="Line 1 rate" type="number" min="0" step="0.01" placeholder="0.00" /></td><td class="line-total">$0.00</td></tr>
+              <tr><td><input class="item-name" aria-label="Line 2 service" type="text" maxlength="90" placeholder="Add-on or condition adjustment" /></td><td><input class="item-qty" aria-label="Line 2 quantity" type="number" min="0" step="0.1" value="1" /></td><td><input class="item-rate" aria-label="Line 2 rate" type="number" min="0" step="0.01" placeholder="0.00" /></td><td class="line-total">$0.00</td></tr>
+              <tr><td><input class="item-name" aria-label="Line 3 service" type="text" maxlength="90" placeholder="Add-on" /></td><td><input class="item-qty" aria-label="Line 3 quantity" type="number" min="0" step="0.1" value="1" /></td><td><input class="item-rate" aria-label="Line 3 rate" type="number" min="0" step="0.01" placeholder="0.00" /></td><td class="line-total">$0.00</td></tr>
+              <tr><td><input class="item-name" aria-label="Line 4 service" type="text" maxlength="90" placeholder="Travel or mobile service fee" /></td><td><input class="item-qty" aria-label="Line 4 quantity" type="number" min="0" step="0.1" value="1" /></td><td><input class="item-rate" aria-label="Line 4 rate" type="number" min="0" step="0.01" placeholder="0.00" /></td><td class="line-total">$0.00</td></tr>
+              <tr><td><input class="item-name" aria-label="Line 5 service" type="text" maxlength="90" placeholder="Additional service" /></td><td><input class="item-qty" aria-label="Line 5 quantity" type="number" min="0" step="0.1" value="1" /></td><td><input class="item-rate" aria-label="Line 5 rate" type="number" min="0" step="0.01" placeholder="0.00" /></td><td class="line-total">$0.00</td></tr>
+            </tbody>
+          </table>
+
+          <div class="estimate-summary">
+            <div class="summary-row"><span>Subtotal</span><strong id="template-subtotal">$0.00</strong></div>
+            <label class="summary-row"><span>Adjustment</span><input id="template-adjustment" type="number" step="0.01" value="0" aria-label="Adjustment amount" /></label>
+            <div class="summary-row summary-total"><span>Estimated total</span><strong id="template-total">$0.00</strong></div>
+          </div>
+
+          <label>Scope, terms, or notes<textarea name="notes" maxlength="700" placeholder="What is included, exclusions, estimate validity, payment timing, or inspection notes"></textarea></label>
+          <p class="quote-disclaimer">This template is a business aid, not legal, tax, or pricing advice. Use terms and rates appropriate for your location, costs, services, and requirements.</p>
+          <div class="template-actions">
+            <button class="button button-primary" id="print-template" type="button">Print / Save PDF</button>
+            <a class="button button-secondary" href="./">Use the free quote calculator</a>
+          </div>
+        </form>
+
+        <aside class="template-sidebar">
+          <div class="hero-note"><p class="note-label">Private by design</p><p>The information entered here is not sent to Kernfold or saved by this page. Avoid sensitive payment, health, or identity information.</p></div>
+          <div class="hero-note"><p class="note-label">Before sending</p><p>Confirm the vehicle, scope, travel, taxes, exclusions, and how long the estimate remains valid.</p></div>
+        </aside>
+      </section>
+
+      <section class="template-guide">
+        <p class="eyebrow">Detailing estimate checklist</p>
+        <h2>What to include in a mobile detailing quote</h2>
+        <div class="guide-grid">
+          <article class="guide-card"><strong>1. Identify the vehicle</strong><p>Record the year, make, model, size, and condition details that materially affect the work.</p></article>
+          <article class="guide-card"><strong>2. Define the scope</strong><p>Name the package and list what is included so the customer can distinguish it from optional work.</p></article>
+          <article class="guide-card"><strong>3. Separate adjustments</strong><p>Show add-ons, unusual-condition work, travel, discounts, or other adjustments as clear line items.</p></article>
+          <article class="guide-card"><strong>4. State the estimate terms</strong><p>Explain inspection requirements, exclusions, payment timing, taxes, and how long the estimate is valid.</p></article>
+        </div>
+      </section>
+
+      <section class="pro-callout">
+        <div><p class="eyebrow">Need reusable pricing?</p><h2>Turn repeat quotes into a faster workflow.</h2><p>QuoteKit Pro adds your own services and prices, branding, tax and adjustments, local quote history, backup/restore, and branded print/PDF output.</p></div>
+        <a class="coming-soon" href="https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing" rel="noopener">Get QuoteKit Pro — $19</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>kernfold</span><p>Useful digital tools, ready to work.</p>
+      <p class="footer-links"><a href="./">Calculator</a> · <a href="privacy.html">Privacy</a> · <a href="mailto:kernfoldstudio@gmail.com">Support</a></p>
+    </footer>
+    <script type="module" src="template.js"></script>
+  </body>
+</html>
