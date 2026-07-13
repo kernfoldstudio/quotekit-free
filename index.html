@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Build a clear mobile detailing quote in under a minute with Kernfold QuoteKit. Free, private, and no signup required."
+    />
+    <title>Free Mobile Detailing Quote Builder | Kernfold QuoteKit</title>
+    <link rel="canonical" href="https://kernfoldstudio.github.io/quotekit-free/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Free Mobile Detailing Quote Builder | Kernfold QuoteKit" />
+    <meta property="og:description" content="Build a clear mobile detailing quote in under a minute. Free, private, and no signup required." />
+    <meta property="og:url" content="https://kernfoldstudio.github.io/quotekit-free/" />
+    <meta property="og:image" content="https://kernfoldstudio.github.io/quotekit-free/social-preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://kernfoldstudio.github.io/quotekit-free/social-preview.jpg" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Kernfold home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span>kernfold</span>
+      </a>
+      <span class="edition-badge">Free tool</span>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">QuoteKit · Mobile detailing edition</p>
+          <h1>A clear detailing quote in under a minute.</h1>
+          <p class="hero-lede">
+            Pick the vehicle, condition, package, and add-ons. QuoteKit does the
+            arithmetic and produces a customer-ready summary—without an account.
+          </p>
+          <ul class="trust-list" aria-label="Product benefits">
+            <li>Runs in your browser</li>
+            <li>Nothing is saved</li>
+            <li>No signup</li>
+          </ul>
+        </div>
+        <aside class="hero-note">
+          <p class="note-label">Before you quote</p>
+          <p>
+            The starter prices are examples, not market recommendations. Inspect
+            the vehicle and confirm rates that fit your location, costs, and work.
+          </p>
+        </aside>
+      </section>
+
+      <section class="builder" aria-label="Detailing quote builder">
+        <form id="quote-form" class="quote-form">
+          <div class="form-section">
+            <div class="section-heading">
+              <span>01</span>
+              <div>
+                <h2>Job details</h2>
+                <p>Enough context to size the work.</p>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                Customer name <span class="optional">Optional</span>
+                <input id="customer-name" name="customerName" type="text" maxlength="80" placeholder="Jordan" autocomplete="off" />
+              </label>
+              <label>
+                Vehicle size
+                <select id="vehicle-size" name="vehicleSize"></select>
+              </label>
+              <label>
+                Current condition
+                <select id="condition" name="condition"></select>
+              </label>
+              <label>
+                Travel fee
+                <span class="money-input">
+                  <span aria-hidden="true">$</span>
+                  <input id="travel-fee" name="travelFee" type="number" min="0" step="1" value="0" inputmode="decimal" />
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span>02</span>
+              <div>
+                <h2>Service package</h2>
+                <p>Choose the closest starting scope.</p>
+              </div>
+            </div>
+            <div id="package-options" class="card-options"></div>
+          </div>
+
+          <div class="form-section">
+            <div class="section-heading">
+              <span>03</span>
+              <div>
+                <h2>Add-ons</h2>
+                <p>Include only work the vehicle needs.</p>
+              </div>
+            </div>
+            <div id="addon-options" class="addon-options"></div>
+          </div>
+        </form>
+
+        <aside class="quote-panel" aria-live="polite">
+          <div class="quote-card" id="quote-card">
+            <div class="quote-topline">
+              <div>
+                <p class="quote-kicker">Prepared estimate</p>
+                <p class="quote-number" id="quote-number"></p>
+              </div>
+              <span class="mini-mark" aria-hidden="true">K</span>
+            </div>
+
+            <div class="quote-customer">
+              <p>Prepared for</p>
+              <h2 id="output-customer">Your customer</h2>
+              <p id="output-context"></p>
+            </div>
+
+            <div id="quote-lines" class="quote-lines"></div>
+
+            <div class="quote-total">
+              <span>Estimated total</span>
+              <strong id="quote-total">$0</strong>
+            </div>
+
+            <p class="quote-disclaimer">
+              Final price may change after an in-person inspection or a material
+              change in scope. Taxes are not included.
+            </p>
+          </div>
+
+          <div class="quote-actions">
+            <button id="copy-quote" type="button" class="button button-primary">Copy quote</button>
+            <button id="print-quote" type="button" class="button button-secondary">Print / PDF</button>
+          </div>
+          <p id="action-status" class="action-status" role="status"></p>
+        </aside>
+      </section>
+
+      <section class="pro-callout" id="pro">
+        <div>
+          <p class="eyebrow">For working detailers</p>
+          <h2>Use your prices, packages, and branding.</h2>
+          <p>
+            QuoteKit Pro is a one-time, local-first tool with saved settings,
+            reusable services, quote history, backups, and branded exports—without
+            a monthly subscription.
+          </p>
+        </div>
+        <a class="coming-soon" id="pro-store-link" href="https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing" rel="noopener">Get QuoteKit Pro — $19</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>kernfold</span>
+      <p>Useful digital tools, ready to work.</p>
+    <p class="footer-links"><a href="privacy.html">Privacy</a> · <a href="mailto:kernfoldstudio@gmail.com">Support</a></p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Kernfold K mark</title>
+  <desc id="desc">A white letter K inside a blue rounded folded-corner square.</desc>
+  <rect width="512" height="512" rx="148" fill="#f4f1e8"/>
+  <path d="M106 82c0-24 20-44 44-44h212c24 0 44 20 44 44v244c0 82-66 148-148 148H150c-24 0-44-20-44-44V82Z" fill="#2454e6"/>
+  <path d="M191 142h58v95l78-95h70l-101 118 108 111h-76l-79-84v84h-58V142Z" fill="#fff"/>
+</svg>
