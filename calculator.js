@@ -102,3 +102,23 @@ export function formatCurrency(value) {
   }).format(value);
 }
 
+const attributionKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+const safeAttributionValue = /^[A-Za-z0-9._~-]{1,100}$/;
+
+export function attributedStoreUrl(storeHref, pageHref) {
+  const storeUrl = new URL(storeHref);
+  const pageUrl = new URL(pageHref);
+  if (!/^https?:$/.test(storeUrl.protocol)) throw new Error("Store URL must use HTTP or HTTPS.");
+
+  for (const key of attributionKeys) {
+    const value = pageUrl.searchParams.get(key);
+    if (value && safeAttributionValue.test(value)) storeUrl.searchParams.set(key, value);
+  }
+  return storeUrl.href;
+}
+
+export function applyOutboundAttribution(root = document, pageHref = window.location.href) {
+  root.querySelectorAll("[data-store-link]").forEach((link) => {
+    link.href = attributedStoreUrl(link.href, pageHref);
+  });
+}

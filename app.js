@@ -1,5 +1,6 @@
 import {
   addOns,
+  applyOutboundAttribution,
   calculateQuote,
   conditions,
   formatCurrency,
@@ -148,6 +149,7 @@ async function copyQuote() {
 }
 
 renderControls();
+applyOutboundAttribution();
 quoteNumber.textContent = makeQuoteNumber();
 updateQuote();
 
@@ -155,4 +157,3 @@ form.addEventListener("input", updateQuote);
 form.addEventListener("change", updateQuote);
 copyButton.addEventListener("click", copyQuote);
 printButton.addEventListener("click", () => window.print());
-

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
-import { calculateQuote, formatCurrency } from "./calculator.js";
+import { attributedStoreUrl, calculateQuote, formatCurrency } from "./calculator.js";
 
 test("calculates the base maintenance quote", () => {
   const quote = calculateQuote({
@@ -55,3 +55,34 @@ test("formats whole-dollar US prices", () => {
   assert.equal(formatCurrency(235), "$235");
 });
 
+test("carries safe inbound attribution to the Gumroad link", () => {
+  const result = new URL(attributedStoreUrl(
+    "https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing?utm_source=kernfold_site&utm_campaign=quote_builder",
+    "https://kernfoldstudio.github.io/quotekit-free/?utm_source=instagram&utm_medium=organic_social&utm_campaign=profile&utm_content=bio",
+  ));
+
+  assert.equal(result.searchParams.get("utm_source"), "instagram");
+  assert.equal(result.searchParams.get("utm_medium"), "organic_social");
+  assert.equal(result.searchParams.get("utm_campaign"), "profile");
+  assert.equal(result.searchParams.get("utm_content"), "bio");
+});
+
+test("keeps fallback attribution when the landing page has no UTM values", () => {
+  const result = new URL(attributedStoreUrl(
+    "https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing?utm_source=kernfold_site&utm_campaign=quote_template",
+    "https://kernfoldstudio.github.io/quotekit-free/quote-template.html",
+  ));
+
+  assert.equal(result.searchParams.get("utm_source"), "kernfold_site");
+  assert.equal(result.searchParams.get("utm_campaign"), "quote_template");
+});
+
+test("ignores malformed attribution values", () => {
+  const result = new URL(attributedStoreUrl(
+    "https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing?utm_source=kernfold_site",
+    "https://kernfoldstudio.github.io/quotekit-free/?utm_source=%3Cscript%3E&utm_campaign=valid_campaign",
+  ));
+
+  assert.equal(result.searchParams.get("utm_source"), "kernfold_site");
+  assert.equal(result.searchParams.get("utm_campaign"), "valid_campaign");
+});

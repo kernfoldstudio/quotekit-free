@@ -1,3 +1,5 @@
+import { applyOutboundAttribution } from "./calculator.js";
+
 const form = document.querySelector("#estimate-form");
 const dateInput = document.querySelector("#estimate-date");
 const adjustmentInput = document.querySelector("#template-adjustment");
@@ -26,6 +28,7 @@ function updateTotals() {
 }
 
 dateInput.value = new Date().toISOString().slice(0, 10);
+applyOutboundAttribution();
 updateTotals();
 form.addEventListener("input", updateTotals);
 printButton.addEventListener("click", () => window.print());
