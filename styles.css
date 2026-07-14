@@ -866,6 +866,43 @@ footer p {
   font-size: 14px;
 }
 
+.price-packages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 34px;
+}
+
+.price-package {
+  background: #fafafa;
+}
+
+.price-package label {
+  display: block;
+}
+
+.price-package label + label {
+  margin-top: 14px;
+}
+
+.price-package textarea {
+  min-height: 150px;
+}
+
+.price-list-subheading {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.price-addons th:first-child {
+  width: 70%;
+}
+
+.price-addons th:last-child,
+.price-addons td:last-child input {
+  text-align: right;
+}
+
 @media (max-width: 900px) {
   .hero,
   .builder,
@@ -922,7 +959,8 @@ footer p {
   .quote-actions,
   .template-fields,
   .guide-grid,
-  .template-sidebar {
+  .template-sidebar,
+  .price-packages {
     grid-template-columns: 1fr;
   }
 
@@ -1013,6 +1051,10 @@ footer p {
   .template-page .template-guide,
   .template-page .template-actions {
     display: none !important;
+  }
+
+  .price-list-page .price-packages {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .template-page .template-main,

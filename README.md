@@ -4,6 +4,9 @@ Build a clear mobile-detailing estimate in under a minute. QuoteKit Free runs en
 
 [**Open the free quote builder →**](https://kernfoldstudio.github.io/quotekit-free/)
 
+- [Printable mobile detailing quote template](https://kernfoldstudio.github.io/quotekit-free/quote-template.html)
+- [Editable mobile detailing price-list template](https://kernfoldstudio.github.io/quotekit-free/mobile-detailing-price-list.html)
+
 ![QuoteKit Free mobile detailing quote builder](social-preview.jpg)
 
 ## What it does
