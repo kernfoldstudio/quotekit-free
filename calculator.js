@@ -112,7 +112,8 @@ export function attributedStoreUrl(storeHref, pageHref) {
 
   for (const key of attributionKeys) {
     const value = pageUrl.searchParams.get(key);
-    if (value && safeAttributionValue.test(value)) storeUrl.searchParams.set(key, value);
+    const linkDefinesPlacement = key === "utm_content" && storeUrl.searchParams.has(key);
+    if (!linkDefinesPlacement && value && safeAttributionValue.test(value)) storeUrl.searchParams.set(key, value);
   }
   return storeUrl.href;
 }

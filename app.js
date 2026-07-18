@@ -22,6 +22,7 @@ const outputContext = document.querySelector("#output-context");
 const quoteNumber = document.querySelector("#quote-number");
 const copyButton = document.querySelector("#copy-quote");
 const printButton = document.querySelector("#print-quote");
+const loadSampleButton = document.querySelector("#load-sample");
 const actionStatus = document.querySelector("#action-status");
 
 let currentQuote;
@@ -148,6 +149,20 @@ async function copyQuote() {
   }
 }
 
+function loadSampleQuote() {
+  customerInput.value = "Maya";
+  vehicleSelect.value = "midsize";
+  conditionSelect.value = "average";
+  travelInput.value = "15";
+  form.querySelector('input[name="package"][value="complete"]').checked = true;
+  form.querySelectorAll('input[name="addons"]').forEach((input) => {
+    input.checked = input.value === "petHair" || input.value === "spraySealant";
+  });
+  updateQuote();
+  actionStatus.textContent = "Sample loaded. Change any field to make it yours.";
+  document.querySelector("#quote-card").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
 renderControls();
 applyOutboundAttribution();
 quoteNumber.textContent = makeQuoteNumber();
@@ -157,3 +172,4 @@ form.addEventListener("input", updateQuote);
 form.addEventListener("change", updateQuote);
 copyButton.addEventListener("click", copyQuote);
 printButton.addEventListener("click", () => window.print());
+loadSampleButton.addEventListener("click", loadSampleQuote);

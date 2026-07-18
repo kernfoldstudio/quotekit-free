@@ -77,6 +77,18 @@ test("keeps fallback attribution when the landing page has no UTM values", () =>
   assert.equal(result.searchParams.get("utm_campaign"), "quote_template");
 });
 
+test("preserves CTA placement while carrying the inbound source", () => {
+  const result = new URL(attributedStoreUrl(
+    "https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing?utm_source=kernfold_site&utm_campaign=quote_builder&utm_content=post_quote",
+    "https://kernfoldstudio.github.io/quotekit-free/?utm_source=pinterest&utm_medium=organic&utm_campaign=checklist&utm_content=pin_05",
+  ));
+
+  assert.equal(result.searchParams.get("utm_source"), "pinterest");
+  assert.equal(result.searchParams.get("utm_medium"), "organic");
+  assert.equal(result.searchParams.get("utm_campaign"), "checklist");
+  assert.equal(result.searchParams.get("utm_content"), "post_quote");
+});
+
 test("ignores malformed attribution values", () => {
   const result = new URL(attributedStoreUrl(
     "https://kernfold.gumroad.com/l/quotekit-pro-mobile-detailing?utm_source=kernfold_site",
